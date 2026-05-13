@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>學習html的心路歷程</title>
+    <style>
+        :root {
+            --gold-dark: #8C6212;
+            --gold-main: #D4AF37;
+            --gold-light: #F3E5AB;
+            --gold-bg: #FCF9EE;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+            background-color: #f0f0f0;
+            margin: 0; padding: 20px;
+            display: flex; justify-content: center;
+        }
+        /* 海報主體：模擬 A1/A0 比例 */
+        .poster {
+            width: 900px;
+            background-color: var(--gold-bg);
+            border: 12px double var(--gold-main);
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        /* 裝飾線條 */
+        .poster::before, .poster::after {
+            content: "</>";
+            position: absolute; font-family: monospace; font-weight: bold;
+            color: rgba(212, 175, 55, 0.15); font-size: 8em;
+        }
+        .poster::before { top: 20px; left: 20px; }
+        .poster::after { bottom: 20px; right: 20px; }
+
+        header { text-align: center; margin-bottom: 30px; position: relative; z-index: 2; }
+        .sub-title { font-size: 16px; color: var(--gold-dark); letter-spacing: 2px; font-weight: bold; margin: 0; }
+        h1 { font-size: 42px; color: var(--gold-dark); margin: 10px 0; font-weight: 900; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
+        .banner { background: var(--gold-main); color: white; display: inline-block; padding: 6px 30px; border-radius: 50px; font-weight: bold; font-size: 18px; }
+
+        .grid-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 20px; }
+        
+        section {
+            background: white;
+            border: 2px solid var(--gold-main);
+            border-radius: 12px;
+            padding: 25px;
+            position: relative;
+            box-shadow: 3px 3px 0px var(--gold-light);
+        }
+        .section-tag {
+            position: absolute; top: -15px; left: 20px;
+            background: var(--gold-dark); color: white;
+            padding: 3px 15px; font-size: 14px; font-weight: bold; border-radius: 5px;
+        }
+        h2 { font-size: 20px; color: var(--gold-dark); margin-top: 10px; margin-bottom: 12px; border-bottom: 2px solid var(--gold-light); padding-bottom: 5px; }
+        p { font-size: 14px; color: #555; line-height: 1.6; margin: 0 0 15px 0; text-align: justify; }
+
+        /* 照片留空框 */
+        .photo-placeholder {
+            border: 3px dashed var(--gold-main);
+            background: #FFFDF6;
+            height: 160px;
+            border-radius: 8px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            color: var(--gold-dark); font-size: 14px; font-weight: bold;
+            margin-top: 10px; gap: 8px;
+        }
+        .photo-placeholder::before { content: "📷"; font-size: 24px; }
+
+        /* 第三區：作品展示（橫跨兩欄） */
+        .section-full { grid-column: span 2; }
+        .phone-container { display: flex; justify-content: space-around; gap: 15px; margin-top: 20px; }
+        
+        /* 手機外殼與網頁嵌入 */
+        .phone-frame {
+            width: 240px; height: 450px;
+            border: 10px solid #222;
+            border-radius: 36px;
+            overflow: hidden;
+            background: #fff;
+            position: relative;
+            box-shadow: 0 8px 20px rgba(140,98,18,0.2);
+        }
+        /* 手機聽筒與鏡頭裝飾 */
+        .phone-frame::before {
+            content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+            width: 100px; height: 18px; background: #222; border-bottom-left-radius: 12px; z-index: 10;
+        }
+        .phone-frame iframe {
+            width: 100%; height: 100%; border: none;
+            padding-top: 15px; /* 避開上方黑色瀏海區 */
+        }
+        .phone-label { text-align: center; margin-top: 10px; font-weight: bold; color: var(--gold-dark); font-size: 15px; }
+    </style>
+</head>
+<body>
+
+<div class="poster">
+    <header>
+        <p class="sub-title">【學習html的心路歷程】HTML網頁程式挑戰</p>
+        <h1>從 0 到 1 的解碼之旅：我的第一頁 HTML</h1>
+        <div class="banner">從「第一行程式」 到 「成功完成一頁個人簡介」</div>
+    </header>
+
+    <div class="grid-layout">
+        <!-- 第一區 -->
+        <section>
+            <div class="section-tag">SECTION 1</div>
+            <h2>階段一：啟航 - 遇見 &lt;HTML&gt;</h2>
+            <p>以為是亂碼，其實是通往數位世界的鑰匙，在html的這堂課程中，我們不使用現成的網頁架站工具，而是挑戰從最原始的 HTML 標籤開始寫起，憑著耐心與邏輯，成功完成了人生中第一個網頁頁面。</p>
+            <div>
+           <!-- 【留空處 A：學生課堂側拍】 -->
+           <img src="https://ju-yu-hsieh.github.io/testweb/images/code01.jpg" style="width:100%; height:160px; object-fit:cover; border-radius:8px;">
+           </div>
+        </section>
+
+        <!-- 第二區 -->
+        <section>
+            <div class="section-tag">SECTION 2</div>
+            <h2>階段二：核心技術解密</h2>
+            <p>用 &lt; &gt; 標籤，蓋出我的自我介紹。HTML 是網頁的骨架。我們學會了如何定義標題 &lt;h1&gt;、如何分段 &lt;p&gt;，以及最難的——如何精準地連結圖片 &lt;img&gt;。
+           就這樣，上課跟著做，也寫了三十多行程式</p>
+            <div>
+           <!-- 【留空處 B：程式代碼截圖+學生課堂側拍】 -->
+           <img src="https://ju-yu-hsieh.github.io/testweb/images/code02.jpg" style="width:100%; height:160px; object-fit:cover; border-radius:8px;">
+           </div>
+        </section>
+
+        <!-- 第三區 -->
+        <section class="section-full">
+            <div class="section-tag">SECTION 3</div>
+            <h2>階段三：金黃成果展現</h2>
+            <p> 雖然畫面不到精美，雖然只有一頁，網頁內容或許單純，但每一行文字、每一張圖的呈現，都是經過無數次「存檔後重新整理」的驗證成果。歡迎直接滑動下方手機畫面體驗學生的實體網頁！</p>
+            
+            <div class="phone-container">
+                <!-- 作品 01 -->
+                <div>
+                    <div class="phone-frame">
+                        <iframe src="https://ju-yu-hsieh.github.io/testweb/92210.html"></iframe>
+                    </div>
+                    <div class="phone-label">羅玟雅 的個人簡介</div>
+                </div>
+
+                <!-- 作品 02 -->
+                <div>
+                    <div class="phone-frame">
+                        <iframe src="https://ju-yu-hsieh.github.io/testweb/92209.html"></iframe>
+                    </div>
+                    <div class="phone-label">凃依孝 的個人簡介</div>
+                </div>
+
+                <!-- 作品 03 -->
+                <div>
+                    <div class="phone-frame">
+                        <iframe src="https://ju-yu-hsieh.github.io/testweb/92203.html"></iframe>
+                    </div>
+                    <div class="phone-label">林立祥 的個人簡介</div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+</body>
+</html>
