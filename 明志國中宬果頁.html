@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>明志國中114學年度技藝班成果</title>
+    <!-- 引入 Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- 引入 Font Awesome 6.5.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* 全域基本樣式 */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #e2ded5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Poppins', 'Noto Sans TC', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* A1 直式規格海報容器 */
+        .poster-container {
+            width: 841px;
+            height: 1100px;
+            background-color: #f4f1ea; /* 大地燕麥色 */
+            position: relative;
+            overflow: hidden;
+            padding: 50px 45px 40px 45px;
+            display: flex;
+            flex-direction: column;
+            color: #2d2012; /* 深可可褐色 */
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        /* 裝飾性柔和莫蘭迪綠圓形幾何漸層 */
+        .bg-gradient-circle-1 {
+            position: absolute;
+            width: 550px;
+            height: 550px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(143, 168, 155, 0.22) 0%, rgba(143, 168, 155, 0) 70%);
+            top: -120px;
+            right: -120px;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .bg-gradient-circle-2 {
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(230, 126, 34, 0.06) 0%, rgba(230, 126, 34, 0) 70%);
+            bottom: -100px;
+            left: -100px;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .bg-gradient-circle-3 {
+            position: absolute;
+            width: 380px;
+            height: 380px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(143, 168, 155, 0.12) 0%, rgba(143, 168, 155, 0) 75%);
+            top: 400px;
+            left: 150px;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* 標題區 (Header) */
+        .poster-header {
+            text-align: center;
+            margin-bottom: 35px;
+            z-index: 1;
+            flex-shrink: 0;
+        }
+        .school-name-en {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 5px;
+            color: #768d7e; /* 莫蘭迪綠調 */
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .main-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #2d2012;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+        .title-divider {
+            width: 220px;
+            height: 2px;
+            background-color: #dfd5c6;
+            margin: 16px auto 0 auto;
+            position: relative;
+        }
+        .title-divider::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: #e67e22; /* 朝氣橘點綴 */
+            transform: rotate(45deg);
+            top: -3px;
+            left: calc(50% - 4px);
+        }
+
+        /* 區塊標題通用樣式 */
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #5a7361;
+            margin-top: 0;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: 1px;
+        }
+        .section-title i {
+            color: #e67e22;
+            font-size: 24px;
+        }
+
+        /* 實體成品展示區 */
+        .physical-section {
+            z-index: 1;
+            margin-bottom: 35px;
+            flex-shrink: 0;
+        }
+        .physical-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        .physical-card {
+            background: #ffffff; /* 簡約白 */
+            border: 1px solid #eadecc; /* 淺金邊框 */
+            border-radius: 8px;
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            box-shadow: 0 3px 10px rgba(45, 32, 18, 0.03);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .physical-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(45, 32, 18, 0.06);
+        }
+        .icon-wrapper {
+            width: 44px;
+            height: 44px;
+            background-color: #fdf6ec; /* 暖黃圖示背景 */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #e67e22;
+            font-size: 30px;
+            flex-shrink: 0;
+        }
+        .card-info {
+            display: flex;
+            flex-direction: column;
+        }
+        .card-tag {
+            font-size: 18px;
+            color: #768d7e;
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+        .card-text {
+            font-size: 16px;
+            font-weight: 700;
+            color: #2d2012;
+        }
+
+        /* 數位作品特展區 */
+        .digital-section {
+            z-index: 1;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .digital-layout {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 20px;
+            flex-grow: 1;
+            align-items: stretch;
+        }
+        .digital-left, .digital-right {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        /* 分類卡片框 */
+        .work-box {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid #eadecc;
+            border-radius: 10px;
+            padding: 18px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 12px rgba(45, 32, 18, 0.02);
+            display: flex;
+            flex-direction: column;
+        }
+        .box-header {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2d2012;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 2px solid #8fa89b;
+            padding-bottom: 6px;
+            flex-shrink: 0;
+        }
+        .box-header i {
+            color: #5a7361;
+        }
+        
+        .student-list {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-grow: 1;
+            gap: 4px;
+        }
+        .student-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dashed #eadecc;
+        }
+        .student-item:last-child {
+            border-bottom: none;
+        }
+        .student-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2d2012;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .id-badge {
+            font-family: 'Poppins', sans-serif;
+            font-size: 10px;
+            color: #768d7e;
+            background: #eae5da;
+            padding: 1px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        .link-group {
+            display: flex;
+            gap: 6px;
+        }
+
+        /* 精緻膠囊按鈕 */
+        .work-link {
+            background: #768d7e; /* 莫蘭迪綠色 */
+            color: #ffffff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+        .work-link:hover {
+            background: #5a7361; /* 微幅深色漸變效果 */
+            transform: translateY(-1px);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+        }
+        .work-link.btn-orange {
+            background: #e67e22;
+        }
+        .work-link.btn-orange:hover {
+            background: #d35400;
+        }
+        .work-link.btn-amber {
+            background: #4a6fa5;
+        }
+        .work-link.btn-amber:hover {
+            background: #3b5984;
+        }
+
+        /* 右欄主視覺裝飾方塊 */
+        .decor-block {
+            background: linear-gradient(135deg, #c5a880 0%, #8e704b 100%); /* 深金色漸層 */
+            border-radius: 10px;
+            padding: 24px 20px;
+            color: #ffffff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(142, 112, 75, 0.2);
+            flex-grow: 1;
+        }
+        .decor-stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+        .decor-stars .star-i {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.15);
+        }
+        .decor-stars .star-i.s1 { top: 15px; left: 20px; font-size: 14px; }
+        .decor-stars .star-i.s2 { bottom: 25px; right: 20px; font-size: 18px; }
+        .decor-stars .star-i.s3 { top: 40px; right: 40px; font-size: 11px; }
+        
+        .decor-slogan {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: #ffffff;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .decor-text {
+            font-size: 16px;
+            line-height: 1.6;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.92);
+            max-width: 100%;
+        }
+
+        /* 頁尾 (Footer) */
+        .poster-footer {
+            margin-top: auto;
+            border-top: 1px solid #dfd5c6;
+            padding-top: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 16px;
+            color: #768d7e;
+            flex-shrink: 0;
+            z-index: 1;
+        }
+        .footer-left {
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        .footer-right {
+            font-weight: 500;
+            color: #2d2012;
+        }
+        .teacher-badge {
+            font-weight: 700;
+            background: #eae5da;
+            padding: 4px 12px;
+            border-radius: 4px;
+            margin-left: 4px;
+            color: #2d2012;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="poster-container">
+        <!-- 柔和裝飾幾何圓 -->
+        <div class="bg-gradient-circle-1"></div>
+        <div class="bg-gradient-circle-2"></div>
+        <div class="bg-gradient-circle-3"></div>
+
+        <!-- 標題區 (Header) -->
+        <header class="poster-header">
+            <h1 class="main-title">明志國中 114學年度技藝班<br>成果展示</h1>
+        <div class="school-name-en">MingZhi junior high school</div>
+             <div class="title-divider"></div>
+        </header>
+
+        <!-- 實體成品區 (3欄 Grid) -->
+        <section class="physical-section">
+            <h2 class="section-title"><i class="fa-solid fa-cubes"></i> 實體成品</h2>
+            <div class="physical-grid">
+                <!-- 卡片 1 -->
+                <div class="physical-card">
+                    <div class="icon-wrapper"><i class="fa-solid fa-magnet"></i></div>
+                    <div class="card-info">
+                        <div class="card-tag">磁鐵</div>
+                        <div class="card-text">吉祥物角色創作</div>
+                    </div>
+                </div>
+                <!-- 卡片 2 -->
+                <div class="physical-card">
+                    <div class="icon-wrapper"><i class="fa-solid fa-bag-shopping"></i></div>
+                    <div class="card-info">
+                        <div class="card-tag">布提袋</div>
+                        <div class="card-text">個人3D公仔生成</div>
+                    </div>
+                </div>
+                <!-- 卡片 3 -->
+                <div class="physical-card">
+                    <div class="icon-wrapper"><i class="fa-solid fa-mug-hot"></i></div>
+                    <div class="card-info">
+                        <div class="card-tag">馬克杯與杯墊</div>
+                        <div class="card-text">AI插圖創作+PS應用</div>
+                    </div>
+                </div>
+                <!-- 卡片 4 -->
+                <div class="physical-card">
+                    <div class="icon-wrapper"><i class="fa-solid fa-face-smile"></i></div>
+                    <div class="card-info">
+                        <div class="card-tag">抱枕</div>
+                        <div class="card-text">Line圖創作</div>
+                    </div>
+                </div>
+                <!-- 卡片 5 -->
+                <div class="physical-card">
+                    <div class="icon-wrapper"><i class="fa-solid fa-certificate"></i></div>
+                    <div class="card-info">
+                        <div class="card-tag">程式體驗證書</div>
+                        <div class="card-text">python遊戲程式</div>
+                    </div>
+                </div>
+                <!-- 卡片 6 -->
+                <div class="physical-card">
+                    <div class="icon-wrapper"><i class="fa-solid fa-keyboard"></i></div>
+                    <div class="card-info">
+                        <div class="card-tag">中英打證照</div>
+                        <div class="card-text">基礎技能</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 數位作品區 (2欄 1.15 : 0.85) -->
+        <section class="digital-section">
+            <h2 class="section-title"><i class="fa-solid fa-cubes-stacked"></i> 數位作品</h2>
+            <div class="digital-layout">
+                
+                <!-- 左欄 (1.15 比例) -->
+                <div class="digital-left">
+                    <!-- 分類框：作品集 -->
+                    <div class="work-box" style="flex-grow: 1.1;">
+                        <div class="box-header">
+                            <i class="fa-solid fa-folder-open"></i> 3D容器塑模作品集
+                        </div>
+                        <div class="student-list">
+                            <div class="student-item">
+                                <span class="student-name"><span class="id-badge">250172</span>黃鈺芳</span>
+                                <div class="link-group">
+                                    <a href="https://drive.google.com/file/d/16NzVi5AaDzRAz4fs7dY7lI90KUyXQZ4n/view?usp=sharing" target="_blank" class="work-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> 作品一</a>
+                                    <a href="https://drive.google.com/file/d/1084QP1KjFv8bbdeyOEnr4P2aoBt_zBH7/view?usp=sharing" target="_blank" class="work-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> 作品二</a>
+                                </div>
+                            </div>
+                            <div class="student-item">
+                                <span class="student-name"><span class="id-badge">255170</span>吳炤廷</span>
+                                <div class="link-group">
+                                    <a href="https://drive.google.com/file/d/1uk8NtoktGyYpQuzNU3YeF8-5Uh_sCfbm/view?usp=sharing" target="_blank" class="work-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> 作品</a>
+                                </div>
+                            </div>
+                            <div class="student-item">
+                                <span class="student-name"><span class="id-badge">255137</span>葉哲愷</span>
+                                <div class="link-group">
+                                    <a href="https://drive.google.com/file/d/1yN_PkFHU8VA6VKOIdSeJKKqRfoHwbTBL/view?usp=sharing" target="_blank" class="work-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> 作品一</a>
+                                    <a href="https://drive.google.com/file/d/1e_NIGxVF8SMpBMZwnw8puQhT5m5rL2-p/view?usp=sharing" target="_blank" class="work-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> 作品二</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 分類框：展示動畫 -->
+                    <div class="work-box" style="flex-grow: 1;">
+                        <div class="box-header">
+                            <i class="fa-solid fa-video"></i> 3D成品展示動畫
+                        </div>
+                        <div class="student-list">
+                            <div class="student-item">
+                                <span class="student-name"><span class="id-badge">250172</span>黃鈺芳</span>
+                                <div class="link-group">
+                                    <a href="https://drive.google.com/file/d/1eQj3N2fwquzwkqPmq8befZaD9ziCypm8/view?usp=sharing" target="_blank" class="work-link btn-orange"><i class="fa-solid fa-play"></i> 動畫展示</a>
+                                </div>
+                            </div>
+                            <div class="student-item">
+                                <span class="student-name"><span class="id-badge">255170</span>吳炤廷</span>
+                                <div class="link-group">
+                                    <a href="https://drive.google.com/file/d/1Chhhn2ydx6Cjh_-_0Mo70fLAANl-XIxL/view?usp=sharing" target="_blank" class="work-link btn-orange"><i class="fa-solid fa-play"></i> 動畫展示</a>
+                                </div>
+                            </div>
+                            <div class="student-item">
+                                <span class="student-name"><span class="id-badge">255137</span>葉哲愷</span>
+                                <div class="link-group">
+                                    <a href="https://drive.google.com/file/d/1xr_xP54glqjhM47pI113x9uczpL3v521/view?usp=sharing" target="_blank" class="work-link btn-orange"><i class="fa-solid fa-play"></i> 動畫展示</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 右欄 (0.85 比例) -->
+                <div class="digital-right">
+                    <!-- 分類框：個人簡介簡報 -->
+                    <div class="work-box" style="flex-grow: 0.8;">
+                        <div class="box-header">
+                            <i class="fa-solid fa-file-powerpoint"></i> 個人簡介簡報
+                        </div>
+                        <div class="student-list">
+                            <div class="student-item" style="border-bottom: none; padding: 5px 0;">
+                                <div style="display: flex; flex-direction: column; gap: 2px;">
+                                    <span class="student-name"><span class="id-badge">250172</span>黃鈺芳</span>                                    
+                                </div>
+                                <div class="link-group">
+                                    <a href="https://drive.google.com/file/d/1iRx8QxrzYwI-hdAe_qG6dc45RmdhrbSe/view?usp=sharing" target="_blank" class="work-link btn-amber"><i class="fa-solid fa-file-lines"></i> 簡報瀏覽</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 主視覺裝飾方塊 -->
+                    <div class="decor-block">
+                        <div class="decor-stars">
+                            <i class="fa-solid fa-star star-i s1"></i>
+                            <i class="fa-solid fa-star star-i s2"></i>
+                            <i class="fa-solid fa-star star-i s3"></i>
+                        </div>
+                        <i class="fa-solid fa-wand-magic-sparkles" style="font-size: 24px; color: #ffe3b3; margin-bottom: 10px;"></i>
+                        <div class="decor-slogan">科技賦能 ‧ 創意翱翔</div>
+                        <div class="decor-text">
+                            用熱情點亮設計之光，以數位工具突破維度的限制，展現技藝與美學的～無限可能。
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- 頁尾 (Footer) -->
+        <footer class="poster-footer">
+            <div class="footer-left">©2026 三重商工 資料處理科</div>
+            <div class="footer-right">指導老師：<span class="teacher-badge">謝佳儒 老師</span></div>
+        </footer>
+    </div>
+
+</body>
+</html>
